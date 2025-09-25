@@ -5,8 +5,10 @@ def fahrenheitToCelsius(fahrenheit):
     return celsius
 
 def intToFibonacci(n):
+    if not isinstance(n, int):
+        raise TypeError("Input has to be an integer.")
     if (n < 0):
-        raise TypeError("Input has to be a non negative integer.")
+        raise ValueError("Input has to be a non negative integer.")
     if (n == 0):
         return 0
     elif (n == 1):
@@ -15,6 +17,5 @@ def intToFibonacci(n):
         fib1 = 0
         fib2 = 1
         for fib in range(2, n + 1):
-            fib1 = fib2
-            fib2 = fib1 + fib2
-            return fib2
+            fib1, fib2 = fib2, fib1 + fib2
+        return fib2
